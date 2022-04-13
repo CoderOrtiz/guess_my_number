@@ -1,73 +1,97 @@
 "use strict";
+// --- Set Values ---
 let score = 5;
 let secretNumber = Math.floor(Math.random() * 20) + 1;
 let highScore = 0;
 
+// --- Set Functions ---
+
+// Calling the "Check" Button 
 document.querySelector(".check").addEventListener("click", check);
 
-function check() {
-  const guess = Number(document.querySelector(".guess").value);
-  
-  if (!guess) {
-    document.querySelector(".message").textContent =
-      "Please select a number between 0-20.";
-  } 
-  else if (guess === secretNumber) {
-    document.querySelector(".message").textContent =
-      "🏆 You Won!";
-    document.querySelector(".number").textContent = secretNumber;
-    document.querySelector("body").style.backgroundColor = "#60b347";
-    document.querySelector(".number").style.width = "35rem";
-    
- if (highScore < score){
-  highScore = score;
+// Calling the "Try Again" Button
+document.querySelector(".again").addEventListener("click", tryAgain);
+
+// The Display Message Function
+const displayMessage = function (message) {
+  document.querySelector(".message").textContent = message;
+};
+
+// The Secret Number Display Function Function
+const displaySecretNumber = function (secretNumber) {
+  document.querySelector(".number").textContent = secretNumber;
+};
+
+// Altering the Appearance of the "Number" Class Function
+const numberREM = function (rem) {
+  document.querySelector(".number").style.width = rem + "rem";
+};
+
+// Changing the Background Color Function
+const backgroundColor = function (color) {
+  document.querySelector("body").style.backgroundColor = color;
+};
+
+// The Displaying the High Score Function
+const displayHighScore = function (highScore) {
   document.querySelector(".highscore").textContent = highScore;
- }
+};
+
+// Displaying the Score Function
+const displayScore = function (score) {
+  document.querySelector(".score").textContent = score;
+};
+
+// --- Logic ---
+
+// The "Check" Button Function. Determines if the User Guessed the Right Number.
+function check() {
+  // Saves the Value Thats Inputted into the Number Box
+  const guess = Number(document.querySelector(".guess").value);
+
+  // For Invaid Input
+  if (!guess) {
+    displayMessage("Please select a number between 0-20.");
+  } 
   
-  } 
-  else if (guess > secretNumber) {
+  // If the User's Guess Matches the Generated Secret Number
+  else if (guess === secretNumber) {
+    displayMessage("🏆 You Won!");
+    displaySecretNumber(secretNumber);
+    backgroundColor("#60b347");
+    numberREM(35);
+
+    // Determines if There Should Be a New High Score
+    if (highScore < score) {
+      highScore = score;
+      displayHighScore(highScore);
+    }
+
+    // If a Valid Input but the User's Guess does not Match the Secret Number
+  } else if (guess !== secretNumber) {
     score--;
-    document.querySelector(".message").textContent = "Lower...";
-    if (score >= 1) document.querySelector(".score").textContent = score;
+    displayMessage(guess > secretNumber ? "📉 Lower..." : "📈 Higher");
+
+    // Only If Score is Less Than One, Display the "You Lose" Message, Set Score to 0, and set the Secret Numeber to 203
+    if (score >= 1);
     else {
-        document.querySelector(".message").textContent = "😝 You Lose!";
-        
-        secretNumber = 203;
-        score = 0;
-        document.querySelector(".score").textContent = score;
-      }
-    
-  } 
-  else if (guess < secretNumber) {
-    score--;
-    document.querySelector(".message").textContent = "Higher...";
-    
-    if (score >= 1) document.querySelector(".score").textContent = score;
-    
-    else {
-      document.querySelector(".message").textContent = "😝 You Lose!";
-      
+      displayMessage("😝 You Lose!");
+      // 203 is an Easter Egg for Friends
       secretNumber = 203;
       score = 0;
-      document.querySelector(".score").textContent = score;
     }
+    displayScore(score);
   }
 }
 
-document.querySelector(".again").addEventListener("click", again);
-
-function again() {
+// The Try Again Function to Reset Game
+function tryAgain() {
   secretNumber = Math.floor(Math.random() * 20) + 1;
-  document.querySelector("body").style.backgroundColor = "#222";
-  document.querySelector(".guess").textContent = secretNumber;
+  backgroundColor("#222");
   score = 5;
-  document.querySelector(".score").textContent = score;
-  document.querySelector(".message").textContent = "Start guessing...";
-  document.querySelector(".number").textContent = "?";
-  document.querySelector(".number").style.width = "15rem";
-  console.log(secretNumber);
+  displayHighScore(highScore);
+  displayScore(score);
+  displayMessage("Start guessing...");
+  displaySecretNumber("?");
+  numberREM(15);
 }
-
-console.log(secretNumber);
-
-// make reset of won number to be original rem
