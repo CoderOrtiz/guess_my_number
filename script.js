@@ -51,7 +51,7 @@ function check() {
 
   // For Invaid Input
   if (!guess) {
-    displayMessage("Please select a number between 0-20.");
+    displayMessage("Please select a number between 1-20.");
   } 
   
   // If the User's Guess Matches the Generated Secret Number
