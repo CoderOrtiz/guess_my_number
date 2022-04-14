@@ -15,7 +15,7 @@ document.querySelector(".again").addEventListener("click", tryAgain);
 // The Display Message Function
 const displayMessage = (message) => (document.querySelector(".message").textContent = message);
 
-// The Secret Number Display Function Function
+// The Secret Number Display Function
 const displaySecretNumber = (secretNumber) => (document.querySelector(".number").textContent = secretNumber);
 
 // Altering the Appearance of the "Number" Class Function
