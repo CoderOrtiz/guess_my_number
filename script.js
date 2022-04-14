@@ -6,41 +6,29 @@ let highScore = 0;
 
 // --- Set Functions ---
 
-// Calling the "Check" Button 
+// Calling the "Check" Button
 document.querySelector(".check").addEventListener("click", check);
 
 // Calling the "Try Again" Button
 document.querySelector(".again").addEventListener("click", tryAgain);
 
 // The Display Message Function
-const displayMessage = function (message) {
-  document.querySelector(".message").textContent = message;
-};
+const displayMessage = (message) => (document.querySelector(".message").textContent = message);
 
 // The Secret Number Display Function Function
-const displaySecretNumber = function (secretNumber) {
-  document.querySelector(".number").textContent = secretNumber;
-};
+const displaySecretNumber = (secretNumber) => (document.querySelector(".number").textContent = secretNumber);
 
 // Altering the Appearance of the "Number" Class Function
-const numberREM = function (rem) {
-  document.querySelector(".number").style.width = rem + "rem";
-};
+const numberREM = (rem) => (document.querySelector(".number").style.width = rem + "rem");
 
 // Changing the Background Color Function
-const backgroundColor = function (color) {
-  document.querySelector("body").style.backgroundColor = color;
-};
+const backgroundColor = (color) => (document.querySelector("body").style.backgroundColor = color);
 
 // The Displaying the High Score Function
-const displayHighScore = function (highScore) {
-  document.querySelector(".highscore").textContent = highScore;
-};
+const displayHighScore = (highScore) => (document.querySelector(".highscore").textContent = highScore);
 
 // Displaying the Score Function
-const displayScore = function (score) {
-  document.querySelector(".score").textContent = score;
-};
+const displayScore = (score) => (document.querySelector(".score").textContent = score);
 
 // --- Logic ---
 
@@ -52,8 +40,8 @@ function check() {
   // For Invaid Input
   if (!guess) {
     displayMessage("Please select a number between 1-20.");
-  } 
-  
+  }
+
   // If the User's Guess Matches the Generated Secret Number
   else if (guess === secretNumber) {
     displayMessage("🏆 You Won!");
