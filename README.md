@@ -25,6 +25,10 @@ What two main things I did differently was that I altered the provided CSS file 
 
 My final thoughts are that I had a blast putting this game together and the end result was truly fulfilling! This was great practice for manipulating items using the DOM and I learned a lot from Jonas when it comes to Refactoring JavaScript code. I am thankful he went over how to Refactor because I was able to considerably reduce my wet code and produce DRY code. I think the biggest take away from this project was the refactoring. I am very excited for the next project! See you on the next one 🙂
 
+## Update:
+
+I REALLY wanted to add an "Enter" Pressdown Function but was unsucessful with my efforts after much googling. I learned in in Jonas' next lesson how to add a pressdown key for a specific key and came back to this project to add it because I REALLY wanted one for this project. The Guess My Number Game is offically complete in my eyes now 😅
+
 ![webpage snapshot](/guess_my_number.png)
 
 Play The Guess my Number Today! https://coderortiz.github.io/guess_my_number/
