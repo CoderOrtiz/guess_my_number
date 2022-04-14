@@ -30,8 +30,16 @@ const displayHighScore = (highScore) => (document.querySelector(".highscore").te
 // Displaying the Score Function
 const displayScore = (score) => (document.querySelector(".score").textContent = score);
 
+function enter(event){
+  if (event.key === "Enter") {
+    check();
+  }
+}
+
 // --- Logic ---
 
+// If Enter is Pressed on your Keyboard then it will Call the Check Function
+document.addEventListener("keydown", enter);
 // The "Check" Button Function. Determines if the User Guessed the Right Number.
 function check() {
   // Saves the Value Thats Inputted into the Number Box
@@ -83,3 +91,4 @@ function tryAgain() {
   displaySecretNumber("?");
   numberREM(15);
 }
+
