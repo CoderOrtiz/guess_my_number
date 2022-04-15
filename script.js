@@ -65,19 +65,20 @@ function check() {
 
     // If a Valid Input but the User's Guess does not Match the Secret Number
   } else if (guess !== secretNumber) {
-    score--;
+    if (score > 1){
     displayMessage(guess > secretNumber ? "📉 Lower..." : "📈 Higher");
+    score--;
+    } 
 
     // Only If Score is Less Than One, Display the "You Lose" Message, Set Score to 0, and set the Secret Numeber to 203
-    if (score >= 1);
     else {
       displayMessage("😝 You Lose!");
       // 203 is an Easter Egg for Friends
       secretNumber = 203;
       score = 0;
     }
-    displayScore(score);
   }
+    displayScore(score);
 }
 
 // The Try Again Function to Reset Game
